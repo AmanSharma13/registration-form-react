@@ -12,9 +12,15 @@ const Home = () => {
           height: "90vh",
         }}
       >
-        <Button variant="dark">
+        <Button variant="primary">
           <Link style={{ color: "white" }} to="registration">
             Register Now
+          </Link>
+        </Button>
+
+        <Button className="m-3" variant="success">
+          <Link style={{ color: "white" }} to="registrationvalidation">
+            Register Validation
           </Link>
         </Button>
       </Container>
