@@ -1,7 +1,9 @@
 a{
     text-decoration: none !important;
-    color: #FFF;
+    /* color: black !important; */
+    /* border: 2px solid blac; */
   }
-  a:hover {
-     color: #00F
-  }
+
+.myc a{
+   color: black !important;
+}

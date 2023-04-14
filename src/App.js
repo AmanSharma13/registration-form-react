@@ -6,6 +6,8 @@ import RegistrationForm from "./components/RegistrationForm";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import RegistrationValidation from "./components/RegistrationValidation";
 import Success from "./components/Success";
+import Destinations from "./components/Destinations";
+import UpcommingTours from "./components/UpcommingTours";
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
             element={<RegistrationValidation />}
           />
           <Route path="/success" element={<Success />} />
+          <Route path="/destinations" element={<Destinations />} />
+          <Route path="/upcomingtours" element={<UpcommingTours />} />
         </Routes>
         <Footer />
       </BrowserRouter>

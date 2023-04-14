@@ -29,13 +29,15 @@ const Header = () => {
                 onMouseEnter={showDropdown}
                 onMouseLeave={hideDropdown}
               >
-                <NavDropdown.Item href="#action/3.1">Tours</NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.2">Flights</NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.3">Hotels</NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.4">Trains</NavDropdown.Item>
+                <div className="dropdown-item myc">
+                  <Link to="/destinations">Destinations</Link>
+                </div>
+                <div className="dropdown-item myc">
+                  <Link to="/upcomingtours">Up Comming Tours</Link>
+                </div>
+                <div className="dropdown-item myc">
+                  <Link to="/">Hotels</Link>
+                </div>
               </NavDropdown>
             </Nav>
           </Navbar.Collapse>
