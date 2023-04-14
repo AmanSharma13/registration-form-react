@@ -4,7 +4,7 @@ import { Card, Button } from "react-bootstrap";
 const Destination = ({ dest }) => {
   return (
     <div className="dest">
-      <Card style={{ width: "20rem" }}>
+      <Card style={{ width: "18rem" }}>
         <Card.Img variant="top" src={dest.image} />
         <Card.Body>
           <Card.Title>{dest.name}</Card.Title>
