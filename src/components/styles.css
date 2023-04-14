@@ -7,3 +7,19 @@ a{
 .myc a{
    color: black !important;
 }
+
+.dest-container{
+   display: flex;
+   flex-wrap: wrap;
+   align-items: center;
+   justify-content: space-around;
+   margin: 20px 25px;
+}
+
+.dest{
+   display: flex;
+   width: 25%;
+   flex-direction: column;
+   flex-wrap: wrap;
+   margin: 5px;
+}
