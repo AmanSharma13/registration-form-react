@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Container, Navbar, NavDropdown, Nav } from "react-bootstrap";
+import { Container, Navbar, NavDropdown, Nav, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./styles.css";
 
@@ -39,6 +39,11 @@ const Header = () => {
               </NavDropdown>
             </Nav>
           </Navbar.Collapse>
+          <Button className="" variant="outline-light">
+            <Link style={{ color: "white" }} to="registrationvalidation">
+              Register Now
+            </Link>
+          </Button>
         </Container>
       </Navbar>
     </>

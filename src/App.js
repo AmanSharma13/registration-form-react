@@ -5,6 +5,7 @@ import Home from "./components/Home";
 import RegistrationForm from "./components/RegistrationForm";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import RegistrationValidation from "./components/RegistrationValidation";
+import Success from "./components/Success";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             path="/registrationvalidation"
             element={<RegistrationValidation />}
           />
+          <Route path="/success" element={<Success />} />
         </Routes>
         <Footer />
       </BrowserRouter>

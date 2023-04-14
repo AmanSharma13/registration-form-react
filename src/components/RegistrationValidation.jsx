@@ -3,6 +3,9 @@ import Button from "react-bootstrap/Button";
 import { Container } from "react-bootstrap";
 import { useFormik } from "formik";
 import * as yup from "yup";
+import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const initialValues = {
   email: "",
@@ -26,13 +29,31 @@ const registerSchema = yup.object().shape({
 });
 
 const RegistrationValidation = () => {
+  const notifySuccess = (text) =>
+    toast.success(text, {
+      position: "top-center",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
+
+  const navigate = useNavigate();
   const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
     useFormik({
       initialValues: initialValues,
       validationSchema: registerSchema,
       onSubmit: (values, action) => {
         console.log(values);
+        localStorage.setItem("data", values);
         action.resetForm();
+        notifySuccess("Registered Succesfully");
+        setTimeout(() => {
+          navigate("/");
+        }, 2000);
       },
     });
 
@@ -44,6 +65,18 @@ const RegistrationValidation = () => {
         marginTop: 20,
       }}
     >
+      <ToastContainer
+        position="top-center"
+        autoClose={1000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="email">
           <Form.Label>Email address</Form.Label>

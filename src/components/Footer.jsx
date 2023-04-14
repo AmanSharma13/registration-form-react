@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -6,10 +7,10 @@ const Footer = () => {
       className="text-center p-3"
       style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
     >
-      © 2020 Copyright:
-      <a className="text-white" href="/">
-        MyWebsitehere.uni
-      </a>
+      &copy; 2023 @MyWebSite.com
+      <Link className="text-black font-bold" href="/">
+        MyWebSite.com
+      </Link>
     </div>
   );
 };
