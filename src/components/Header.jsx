@@ -15,7 +15,11 @@ const Header = () => {
     <>
       <Navbar bg="dark" variant="dark" expand="lg">
         <Container>
-          <Navbar.Brand href="#home">GhumloJi</Navbar.Brand>
+          <div className="navbar-brand">
+            <Link to="/" style={{ color: "white" }}>
+              GhumloJi
+            </Link>
+          </div>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
