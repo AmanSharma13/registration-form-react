@@ -6,7 +6,7 @@ import * as yup from "yup";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import { useState } from "react";
 const initialValues = {
   email: "",
   name: "",
@@ -29,6 +29,7 @@ const registerSchema = yup.object().shape({
 });
 
 const RegistrationValidation = () => {
+  const [registerd, setRegisterd] = useState(false);
   const notifySuccess = (text) =>
     toast.success(text, {
       position: "top-center",
@@ -42,18 +43,28 @@ const RegistrationValidation = () => {
     });
 
   const navigate = useNavigate();
+
   const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
     useFormik({
       initialValues: initialValues,
       validationSchema: registerSchema,
       onSubmit: (values, action) => {
-        console.log(values);
-        localStorage.setItem("data", values);
-        action.resetForm();
-        notifySuccess("Registered Succesfully");
-        setTimeout(() => {
-          navigate("/");
-        }, 2000);
+        const requestOptions = {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(values),
+        };
+        fetch("http://localhost:5001/registration", requestOptions)
+          .then((response) => response.json())
+          .then(() => setRegisterd(true));
+        if (registerd) {
+          localStorage.setItem("data", JSON.stringify(values));
+          action.resetForm();
+          notifySuccess("Registered Succesfully");
+          setTimeout(() => {
+            navigate("/");
+          }, 2000);
+        }
       },
     });
 
@@ -161,7 +172,12 @@ const RegistrationValidation = () => {
             <p style={{ color: "red" }}>{errors.terms}</p>
           ) : null}
         </Form.Group>
-        <Button className="w-100" variant="primary" type="submit">
+        <Button
+          className="w-100"
+          variant="primary"
+          type="submit"
+          onSubmit={handleSubmit}
+        >
           Submit
         </Button>
         <Button className="w-100 mt-2" variant="danger" type="Reset">
